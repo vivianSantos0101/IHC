@@ -1,0 +1,6 @@
+# qwen-cpu.modelfile
+
+FROM qwen2.5-coder:3b
+
+# Força o Ollama a usar 0 camadas da GPU (resolve o erro de VRAM)
+PARAMETER num_gpu 0

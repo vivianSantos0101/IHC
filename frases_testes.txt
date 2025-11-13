@@ -1,0 +1,51 @@
+Frases de Teste para o Bot de Estatísticas da F1
+
+I. Consultas de Dados Atuais (equipes_f1 - SELECT)
+
+    Quantos pontos a McLaren tem atualmente?
+
+    Qual equipe tem o maior número de pódios?
+
+    Quais são as equipes do Reino Unido com mais de 100 pontos?
+
+    Quem são os pilotos principais da Ferrari?
+
+    Me mostre a lista de equipes e o total de vitórias que cada uma tem.
+
+    Quais equipes têm mais de 300 pontos?
+
+II. Consultas de Histórico (historico_campeoes - SELECT)
+
+    Quem foi o campeão de pilotos em 1994?
+
+    Em que anos Lewis Hamilton ganhou campeonatos de piloto?
+
+    Qual foi a construtora campeã em 2021?
+
+    Liste todos os pilotos que venceram na década de 70.
+
+    Qual foi a maior pontuação de um campeão na década de 2010?
+
+    Qual piloto venceu mais campeonatos pela escuderia Ferrari?
+
+III. Gerenciamento e Modificação de Dados
+
+A. Inserir (INSERT)
+
+    Adicione uma nova equipe chamada 'Andretti Global' com nacionalidade Americana. (Tabela equipes_f1)
+
+    Registre o ano de 1959 onde o piloto Jack Brabham venceu com a Cooper-Climax. (Tabela historico_campeoes)
+
+B. Atualizar (UPDATE)
+
+    Mude os pontos da Williams para 120. (Tabela equipes_f1)
+
+    Na Haas, o Oliver Bearman não é mais o principal, mude o piloto para K. Magnussen. (Tabela equipes_f1)
+
+    Corrija o registro de 1975, a construtora campeã deveria ser Tyrrell, não Ferrari. (Tabela historico_campeoes)
+
+C. Deletar (DELETE)
+
+    Remova a Andretti Global da tabela de equipes atuais. (Tabela equipes_f1)
+
+    Apague o registro de campeão do ano de 1959. (Tabela historico_campeoes)

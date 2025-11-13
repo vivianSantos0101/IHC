@@ -1,0 +1,74 @@
+Para garantir o funcionamento perfeito e completo do servidor, as seguintes dependências externas devem ser instaladas no seu sistema:
+
+Dependências do Sistema
+
+1. FFMPEG: Necessário para processar e transcrever mensagens de áudio.
+   Link: [https://ffmpeg.org/](https://ffmpeg.org/)
+2. Ollama: Plataforma essencial para rodar o modelo de Linguagem Grande (LLM) localmente.
+   Link: [https://ollama.com/](https://ollama.com/)
+3. Modelo LLM: O modelo recomendado para este projeto é o qwen2.5-coder:3b.
+   Link: [https://ollama.com/library/qwen2.5-coder:3b](https://ollama.com/library/qwen2.5-coder:3b)
+
+Otimização de Performance (Ajuste de Memória)
+
+Se o seu PC possui 4GB de VRAM ou menos, é altamente recomendável otimizar a distribuição de peso do modelo entre a RAM (Memória Principal) e a VRAM (Memória de Vídeo).
+
+Ajuste: Utilize o arquivo Modelfile do projeto para criar uma versão personalizada da LLM.
+Controle: Edite a propriedade num_gpu.
+Menor num_gpu: Mais peso do modelo será descarregado para a RAM.
+Maior num_gpu: Mais peso do modelo será carregado para a VRAM.
+
+Lembrete: Certifique-se de que o nome final do modelo que você está utilizando (ou o nome do seu modelo personalizado) esteja corretamente registrado na variável do arquivo .env.
+
+Configuração do Bot no Telegram
+
+Para criar seu assistente no Telegram, siga as instruções oficiais da API:
+
+1. Envie uma mensagem para o @BotFather no Telegram para registrar seu bot.
+2. Você receberá um token de autenticação único.
+
+ATENÇÃO: O token do bot é seu identificador exclusivo. Armazene-o em local seguro e nunca o compartilhe com quem não precisa de acesso total ao bot. Quem possui o token tem controle total sobre ele.
+
+Instruções de Inicialização
+
+1. Instalação das Dependências Python
+
+Primeiro, instale todas as bibliotecas Python necessárias:
+pip install -r requirements.txt
+
+2. Ordem de Execução
+
+O programa é dividido em duas partes que devem ser iniciadas em ordem:
+
+1. Inicie o Servidor MCP (Mestre):
+python server_mcp.py
+OU
+py server_mcp.py
+
+2. Inicie o Cliente (Bot do Telegram):
+python client_mcp.py
+OU
+py client_mcp.py
+
+Limitações e Desenvolvimento
+
+Base de Conhecimento (Database)
+
+O bot utiliza exclusivamente as informações que estão no seu banco de dados (DB).
+
+Fonte de Dados: Consulte o arquivo populate_db.py para entender a base de conhecimento inicial. Se o bot for questionado sobre algo que não está na DB, ele não conseguirá responder.
+Estrutura da DB: Se for adicionar mais informações, fique à vontade! No entanto, qualquer alteração na estrutura das tabelas requer uma atualização no prompt da LLM para evitar erros de análise de SQL.
+
+Geração de SQL e Parser
+
+A estrutura atual do prompt está bem adaptada para as duas tabelas existentes. Contudo, como a IA é responsável por gerar o SQL a partir da sua pergunta, erros de interpretação (parser) podem ocasionalmente ocorrer.
+
+Dicas de Desenvolvimento
+
+Se você estiver programando, refatorando ou corrigindo o código:
+
+Use Nível de LOG 'DEBUG': Altere a variável de log no seu .env para SERVER_LOG_LEVEL=DEBUG. Isso fornecerá informações detalhadas sobre os inputs e o processo interno, facilitando a depuração.
+
+E por fim:
+
+No arquivo frases_testes.txt, você encontrará uma coletânea de frases que foram testadas com sucesso no bot, cobrindo consultas e modificações de dados em todas as tabelas. Utilize-as para verificar rapidamente o funcionamento da aplicação.
